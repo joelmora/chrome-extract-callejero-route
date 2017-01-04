@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Route Extractor",
+  "description": "This extension grab the route coordinates from callejero website",
+  "version": "1.0",
+  "icons": {
+    "128": "assets/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "assets/browser-icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["lib/jquery-3.1.1.slim.min.js","background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["*://*.openalfa.com/*"],
+    "js": ["content.js"]
+  }],
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ]
+}
