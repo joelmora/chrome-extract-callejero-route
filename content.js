@@ -8,7 +8,13 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
         //title
         var title = document.getElementsByClassName('posttitle')[0].innerText;
 
-        title
+        title = title.replace('Línea de Autobús ', '');
+        title = title.replace(' - Ocultar Mapa', '');
+        title = title.replace(' - Mostrar Mapa', '');
+
+        var splitted = title.split(' - ');
+        route.code = splitted.shift();
+        route.name = splitted.join(' - ');
 
         //coord
         var scripts = document.getElementsByTagName('script');
